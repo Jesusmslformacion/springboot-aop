@@ -16,7 +16,8 @@ public class GreetingAspect {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Before("execution(* com.jesus.curso.springboot.app.aop.springboot_aop.services.GreetingService.sayHello(..))")// Pointcut para interceptar el método sayHello del servicio de saludo
+    // Advice que se ejecuta antes de llamar al método sayHello
+    @Before("execution(* com.jesus.curso.springboot.app.aop.springboot_aop.services.GreetingService.*(..))")
     public void loggerBefore(JoinPoint joinPoint) {
         // Obtener información del método interceptado
         String method = joinPoint.getSignature().toShortString();
