@@ -21,4 +21,10 @@ public class GreetingController {
         return ResponseEntity.ok(Collections.singletonMap("greeting", greetingService.sayHello("Jesus", "Hola que tal?")));
     }
 
+        @GetMapping("/greeting-error")
+    // Simula un error al devolver un valor nulo en el campo "greeting"
+    public ResponseEntity<?> greetingError() {
+        return ResponseEntity.ok(Collections.singletonMap("greeting", greetingService.sayHelloError("Jesus", "Hola que tal?")));
+    }
+
 }
